@@ -1,0 +1,27 @@
+
+ <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+          <div class="container">
+            <h2>ROGUELIKE DUNGEON GENERATOR IN PURE JAVASCRIPT</h2>
+            <blockquote>
+                <p>"Obstacles are those frightful things you see when you take your eyes off your goal"
+                </p>
+                <footer>-- Henry Ford</footer>
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="row">
+              <label>Number of rooms</label><input type="number" ng-model="room-number" name="room-number" min="3" max="30">
+              <button ng-click="generateMap">Generate!</button>
+
+
+                  <div class='map-row' ng-repeat='row in rows'>
+                    <div class='map-tile' ng-repeat='col in row.data track by $index'>
+                        {{ col }}
+                    </div><!-- end of .map-tile -->
+                  </div><!-- end of .map-row -->
+             
+          </div>
+        </div>
