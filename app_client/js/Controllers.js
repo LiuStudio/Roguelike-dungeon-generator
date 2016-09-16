@@ -5,7 +5,9 @@ angular.module('Dungeon-Generator-App')
 		$scope.numberroom = '';
 		var generateMap = function(){
 			MapGenService.map_init();
-			MapGenService.generateRooms(8);
+			MapGenService.generateRooms(2);
+			MapGenService.generateAllPaths();
+			MapGenService.connectMaze();
 		    $scope.map_object = MapGenService.map_toJSON();	
 		}
 		
