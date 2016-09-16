@@ -5,12 +5,14 @@ angular.module('Dungeon-Generator-App')
 		$scope.numberroom = '';
 		var generateMap = function(){
 			MapGenService.map_init();
+			MapGenService.generateRooms(8);
 		    $scope.map_object = MapGenService.map_toJSON();	
 		}
 		
 
 		$scope.generateMap = generateMap;
 		
+
 		$scope.testobj = {
 			rows: [{data: [1,2,3]},
 					{data:[4,5,6]},

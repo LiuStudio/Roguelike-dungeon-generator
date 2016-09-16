@@ -19,8 +19,9 @@
 
                   <div  class='map-row' ng-repeat='row in map_object.rows'>
                     <div class='map-tile' ng-repeat='col in row.data track by $index'>
-                      
-                        <img src="../images/Bricks/brick_tile_gray.png">
+                       
+                       <!-- <img src="../images/Bricks/brick_tile_gray.png"> -->
+                       {{col.floorType}}
                     </div><!-- end of .map-tile -->
                   </div><!-- end of .map-row -->
              

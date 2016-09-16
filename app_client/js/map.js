@@ -2,6 +2,8 @@ angular.module('Dungeon-Generator-App')
 	.service('MapGenService',function(){
 		const MAP_X = 40;
 		const MAP_Y = 40;
+		const ROOM_SIZE_MAX = 8;
+		const ROOM_SIZE_MIN = 3;
 		const PIX_SIZE = 5;
 		var floor_map = [];
 		var rooms = [];
@@ -163,7 +165,8 @@ angular.module('Dungeon-Generator-App')
 
 
 		var map_init = function(){
-
+			floor_map = [];
+			rooms = [];
 			for (var j = 0; j<MAP_Y; j++){	
 				for (var i=0; i<MAP_X; i++){
 					var tile = new Tile(i,j);
@@ -171,6 +174,7 @@ angular.module('Dungeon-Generator-App')
 				}	
 			}
 			console.log(JSON.stringify(floor_map));
+
 			
 		}
 
@@ -200,12 +204,14 @@ angular.module('Dungeon-Generator-App')
 			this.bottomB = y+Math.floor(length/2);
 			this.tiles=[];//should contain all the tile in this room's _id, so that later can be easily populate connected thorugh all rooms
 			this.connected = 0;
+
 		}
 
 		Room.prototype.isNotOverlap = function() {
 			 if(rooms[0]){
+			 	var this_room = this;
 			 	return rooms.every(function(other_room,index,rooms){
-			 		return this.leftB > other_room.rightB+3 || this.rightB < other_room.leftB-3 || this.topB > other_room.bottomB+3 || this.bottomB < other_room.topB-3 ;
+ 						return this_room.leftB > other_room.rightB+3 || this_room.rightB < other_room.leftB-3 || this_room.topB > other_room.bottomB+3 || this_room.bottomB < other_room.topB-3 ;
 			 	});
 			 }else{
 			 	return true;
@@ -251,12 +257,56 @@ angular.module('Dungeon-Generator-App')
 			return this.connected == 1;
 		};
 
+		var generateRooms = function(number_of_rooms){
+			for (var i = 0; i<number_of_rooms; i++){
+				var attempt =0;
+				var room_place_success = 0;
+
+				while(attempt < 20){
+					attempt ++;
+					var width  = Math.floor(Math.random()*(ROOM_SIZE_MAX-ROOM_SIZE_MIN)+ROOM_SIZE_MIN);
+					var length = Math.floor(Math.random()*(ROOM_SIZE_MAX-ROOM_SIZE_MIN)+ROOM_SIZE_MIN);
+			        if (width %2 ==0){
+			        	width--;
+			        }
+			        if (length %2 ==0){
+			        	length--;
+			        }
+
+			        var min_x = Math.ceil(width/2)+1;
+			        var max_x = MAP_X-Math.ceil(width/2)-1;
+
+			        var min_y = Math.ceil(length/2)+1;
+			        var max_y = MAP_Y-Math.ceil(length/2)-1;
+
+					var x = Math.floor(Math.random()*(max_x-min_x))+min_x;
+					var y = Math.floor(Math.random()*(max_y-min_y))+min_y;
+				    console.log("attempt = "+attempt+" x, y, width, length is "+x+", "+y+", "+width+" ,"+length);
+					var room = new Room(x,y,width,length);
+					console.log(JSON.stringify(room));
+
+					if (room.isNotOverlap()){
+						console.log("isnotoverlap is true");
+						room.placeRoom();
+						room_place_success = 1;
+						break;
+					}
+					
+				}//while 
+				
+				if (room_place_success == 0) {
+					//cannot place room within 20 attemps, may indicate it is not possible to place a room/ or too hard to do it
+					break;
+				}
+			}//for loop
+		};
 
 		this.floor_map = floor_map;
 		this.Tile = Tile;
 		this.Room = Room;
 		this.map_init = map_init;
 		this.map_toJSON = map_toJSON;
+		this.generateRooms = generateRooms;
 
 })
 
