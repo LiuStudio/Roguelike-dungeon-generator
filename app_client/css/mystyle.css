@@ -97,3 +97,15 @@ body {
   position: absolute;
   right: 0px;
 }
+.map-tile{
+  display:block;
+  height:auto;
+  float:left;
+  border-left:1px;
+}
+.map-row {
+  margin: 0px auto;
+  padding: 0px 0px;
+  border-bottom: 0px;
+  min-height: 22px;
+}

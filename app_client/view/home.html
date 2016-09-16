@@ -13,13 +13,14 @@
 
         <div class="container">
           <div class="row">
-              <label>Number of rooms</label><input type="number" ng-model="room-number" name="room-number" min="3" max="30">
-              <button ng-click="generateMap">Generate!</button>
+              <label>Number of rooms</label><input type="text"  name="room-number" min="3" max="30">
+              <button ng-click="generateMap()">Generate!</button>
 
 
-                  <div class='map-row' ng-repeat='row in rows'>
+                  <div  class='map-row' ng-repeat='row in map_object.rows'>
                     <div class='map-tile' ng-repeat='col in row.data track by $index'>
-                        {{ col }}
+                      
+                        <img src="../images/Bricks/brick_tile_gray.png">
                     </div><!-- end of .map-tile -->
                   </div><!-- end of .map-row -->
              

@@ -1,7 +1,7 @@
-ngular.module('Dungeon-Generator-App')
+angular.module('Dungeon-Generator-App')
 	.directive('floorTile',function(){
 		return {
-			restrict: 'A',
-			template: '<strong>Hello from directive</strong>'
-		}
+			restrict: 'E',
+			templateUrl: 'floor-tile-template.html'
+		};
 	});
