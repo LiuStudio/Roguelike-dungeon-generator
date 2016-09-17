@@ -13,15 +13,44 @@
 
         <div class="container">
           <div class="row">
-              <label>Number of rooms</label><input type="text"  name="room-number" min="3" max="30">
-              <button ng-click="generateMap()">Generate!</button>
+              <!--<label>Number of rooms</label><input type="text"  name="room-number" min="3" max="30">-->
+              <button class="btn-primary" ng-click="generateMap()"> Click to Generate a Dungeon! </button>
 
-
+                <div class ="row">
+                	<strong> Legend : </strong>
+                	<ul>
+                	   <li>
+                	   		<img src="../images/Bricks/brick_tile_dg.png"> <label> Floor</label>
+                	   </li>
+                	   <li>
+                       <img src="../images/Bricks/brick_tile_gray.png"><label> Room</label>
+                       </li>
+                       <li>
+                       <img src="../images/Bricks/brick_tile_gray_small.png"><label> Path</label>
+                       </li>
+                       <li>
+                       <img src="../images/Bricks/brick_tile_green.png"><label> Room Entrance</label>
+					   </li>
+					   <li>
+					   <img src="../images/Bricks/brick_tile_sand.png"><label> Map Entrance</label>
+					   </li>
+					   <li>
+					   <img src="../images/Bricks/brick_tile_yl.png"><label> Map Exit</label>
+					   </li>
+                	</ul>
+                	
+                </div>
                   <div  class='map-row' ng-repeat='row in map_object.rows'>
                     <div class='map-tile' ng-repeat='col in row.data track by $index'>
                        
-                       <!-- <img src="../images/Bricks/brick_tile_gray.png"> -->
-                       {{col.floorType}}
+                       <img ng-show = col.isFloor() src="../images/Bricks/brick_tile_dg.png">
+                       <img ng-show = col.isRoom() src="../images/Bricks/brick_tile_gray.png">
+                       <img ng-show = col.isPath() src="../images/Bricks/brick_tile_gray_small.png">
+                       <img ng-show = col.isEntrance() src="../images/Bricks/brick_tile_green.png">
+					   <img ng-show = col.isMapEntrance() src="../images/Bricks/brick_tile_sand.png">
+					   <img ng-show = col.isMapExit() src="../images/Bricks/brick_tile_yl.png">
+                       
+                   	<!-- {{col.floorType}}.{{col.connected}}-->
                     </div><!-- end of .map-tile -->
                   </div><!-- end of .map-row -->
              
