@@ -11,6 +11,7 @@ After clone the Repo, please do the following
 3. Open a Broweser, Type `http://localhost:3000` and Enter
 4. Now Just click the Generate Button, everytime you should see a random Dungeon Map Generated.
 
+There are some flaws to this script and I am sure there are improvements need to be done!  
 ##Some Study Notes Here as I am learning the concept of Roguelike Dungeon Generator
  A basic Dungeon Will need the following:
  
@@ -20,8 +21,7 @@ After clone the Repo, please do the following
  * Every space must be reachable
 
  Reference: http://www.roguebasin.com/index.php?title=Dungeon-Building_Algorithm
-
- ##Some Tips from Readings for making a GOOD Dungeon Generator
+##Some Tips from Readings for making a GOOD Dungeon Generator
  
  * It needs to be fairly efficient--generator only runs when the player enters a new level
  * It needs to be connected--from any point in the dungeon, there is a way--posibly circuitous--to any other point
