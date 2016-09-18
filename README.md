@@ -20,11 +20,11 @@ At the end of the day, it is all about the thinking, not about programing langua
 
 ##The Algorithm
 
-I strongly recommend you read about Maze Generator Algorithm written by Jamis Bucks http://www.jamisbuck.org/presentations/rubyconf2011/
-My approach of generating this Maze comes from <Reference: http://journal.stuffwithstuff.com/2014/12/21/rooms-and-mazes/
->
+* I strongly recommend you read about Maze Generator Algorithm written by Jamis Bucks http://www.jamisbuck.org/presentations/rubyconf2011/
+* My approach of generating this Maze comes from http://journal.stuffwithstuff.com/2014/12/21/rooms-and-mazes/
 
-Here are the steps I follow when designing the Dungeon:
+
+Here are the steps I follow when designing the Dungeon:  
 1. Place Room in the map
 	* Generate a Room in random location(x,y) and random W and L
 	* Check whether this Room is overlapping with any other existing rooms
