@@ -1,7 +1,7 @@
 # Roguelike-dungeon-generator
 A Playground for Dungeon Generator! Have FUN!
 
-##How to Run the App
+## How to Run the App
 This is a Single Page Application written in AngularJs, I have setup a simple Express Server to support the Display. 
 
 After clone the Repo, please do the following
@@ -13,7 +13,7 @@ After clone the Repo, please do the following
 
 There are some flaws to this script and I am sure there are improvements need to be done!  
 
-##It's all about the thinking!
+## It's all about the thinking!
 There are a lot of articles about Roguelike Dungeon Generator in all kinds of programing languages. Javascript is such a powerful one, and it would be great to have one Application written in pure Javascript, don't you think?
 
 At the end of the day, it is all about the thinking, not about programing language, anyways. 
@@ -25,6 +25,7 @@ At the end of the day, it is all about the thinking, not about programing langua
 
 
 Here are the steps I follow when designing the Dungeon:  
+
 1. Place Room in the map
 	* Generate a Room in random location(x,y) and random W and L
 	* Check whether this Room is overlapping with any other existing rooms
@@ -55,7 +56,7 @@ Here are the steps I follow when designing the Dungeon:
 	* Find a path node that on the border , make it Map Entrance/exit
 	* If cannot find one, extend the node that most close to border towards border, until it reaches border, and make entrance and exit
 	
-##Some Study Notes Here as I am learning the concept of Roguelike Dungeon Generator
+## Some Study Notes Here as I am learning the concept of Roguelike Dungeon Generator
  A basic Dungeon Will need the following:
  
  * A Set of interconnected rooms, doors and tunnels
@@ -64,7 +65,7 @@ Here are the steps I follow when designing the Dungeon:
  * Every space must be reachable
 
  Reference: http://www.roguebasin.com/index.php?title=Dungeon-Building_Algorithm
-##Some Tips from Readings for making a GOOD Dungeon Generator
+## Some Tips from Readings for making a GOOD Dungeon Generator
  
  * It needs to be fairly efficient--generator only runs when the player enters a new level
  * It needs to be connected--from any point in the dungeon, there is a way--posibly circuitous--to any other point
